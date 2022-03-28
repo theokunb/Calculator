@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.App">
+    <Application.Resources>
+        
+        <Color x:Key="ColorRed">#FF0000</Color>
+        <Color x:Key="ColorPrimaryDark">#303F9F</Color>
+        <Color x:Key="ColorMain">#282828</Color>
+        
+        <Style TargetType="Button"
+               x:Key="StyleMainButton">
+            <Setter Property="WidthRequest" Value="10"/>
+            <Setter Property="CornerRadius" Value="50"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HeightRequest" Value="80"/>
+            <Setter Property="WidthRequest" Value="80"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{x:StaticResource StyleMainButton}"
+               x:Key="StyleClearButton">
+            <Setter Property="TextColor" Value="{StaticResource Key=ColorRed}"/>
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{x:StaticResource StyleMainButton}"
+               x:Key="StyleOperatorButton">
+            <Setter Property="TextColor" Value="{x:StaticResource Key=ColorPrimaryDark}"/>
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{x:StaticResource StyleMainButton}"
+               x:Key="StyleSolveButton">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="{x:StaticResource Key=ColorPrimaryDark}"/>
+        </Style>
+    </Application.Resources>
+</Application>

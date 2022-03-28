@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Calculator.ViewModels"
+             x:Class="Calculator.Views.MainPage">
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Spacing="6">
+            <ScrollView VerticalScrollBarVisibility="Never"
+                        x:Name="scrollViewExpression"
+                        HeightRequest="120">
+                <Label Text="{Binding Input}"
+                       FontSize="50"
+                       VerticalOptions="End"
+                       LineBreakMode="WordWrap"/>
+            </ScrollView>
+            <Label Text="{Binding Result}"
+                   FontSize="50"
+                   VerticalOptions="Start"/>
+            <Grid VerticalOptions="EndAndExpand"
+                  Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Text="C"
+                        Style="{x:StaticResource StyleClearButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding ClearParameter}"/>
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Text="&lt;"
+                        Style="{x:StaticResource StyleOperatorButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding BackParameter}"/>
+                <Button Grid.Row="0"
+                        Grid.Column="2"
+                        x:Name="buttonBkt"
+                        Text="()"
+                        Style="{x:StaticResource StyleOperatorButton}"
+                        Command="{Binding CommandBkt}"
+                        CommandParameter="{Binding Text,Source={x:Reference buttonBkt}}"/>
+                <Button Grid.Row="0"
+                        Grid.Column="3"
+                        x:Name="buttonDiv"
+                        Text="/"
+                        Style="{x:StaticResource StyleOperatorButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference buttonDiv}}"/>
+                <Button Grid.Row="1"
+                        Grid.Column="0"
+                        x:Name="button7"
+                        Text="7"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button7}}"/>
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        x:Name="button8"
+                        Text="8"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button8}}"/>
+                <Button Grid.Row="1"
+                        Grid.Column="2"
+                        x:Name="button9"
+                        Text="9"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button9}}"/>
+                <Button Grid.Row="1"
+                        Grid.Column="3"
+                        x:Name="buttonMul"
+                        Text="*"
+                        Style="{x:StaticResource StyleOperatorButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text, Source={x:Reference buttonMul}}"/>
+                <Button Grid.Row="2"
+                        Grid.Column="0"
+                        x:Name="button4"
+                        Text="4"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button4}}"/>
+                <Button Grid.Row="2"
+                        Grid.Column="1"
+                        x:Name="button5"
+                        Text="5"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button5}}"/>
+                <Button Grid.Row="2"
+                        Grid.Column="2"
+                        x:Name="button6"
+                        Text="6"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button6}}"/>
+                <Button Grid.Row="2"
+                        Grid.Column="3"
+                        x:Name="buttonSub"
+                        Text="-"
+                        Style="{x:StaticResource StyleOperatorButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference buttonSub}}"/>
+                <Button Grid.Row="3"
+                        Grid.Column="0"
+                        x:Name="button1"
+                        Text="1"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button1}}"/>
+                <Button Grid.Row="3"
+                        Grid.Column="1"
+                        x:Name="button2"
+                        Text="2"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text, Source={x:Reference button2}}"/>
+                <Button Grid.Row="3"
+                        Grid.Column="2"
+                        x:Name="button3"
+                        Text="3"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button3}}"/>
+                <Button Grid.Row="3"
+                        Grid.Column="3"
+                        x:Name="buttonAdd"
+                        Text="+"
+                        Style="{x:StaticResource StyleOperatorButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference buttonAdd}}"/>
+                <Button Grid.Row="4"
+                        Grid.Column="0"
+                        x:Name="buttonMark"
+                        Text="+/-"
+                        Style="{x:StaticResource StyleMainButton}"/>
+                <Button Grid.Row="4"
+                        Grid.Column="1"
+                        x:Name="button0"
+                        Text="0"
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference button0}}"/>
+                <Button Grid.Row="4"
+                        Grid.Column="2"
+                        x:Name="buttonPoint"
+                        Text=","
+                        Style="{x:StaticResource StyleMainButton}"
+                        Command="{Binding CommandPerformButton}"
+                        CommandParameter="{Binding Text,Source={x:Reference buttonPoint}}"/>
+                <Button Grid.Row="4"
+                        Grid.Column="3"
+                        Text="="
+                        Style="{x:StaticResource StyleSolveButton}"
+                        Command="{Binding CommandSolveButton}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
